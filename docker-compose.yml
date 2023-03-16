@@ -1,0 +1,14 @@
+version: "3"
+services:
+  note_db:
+    image: mongo:latest
+    container_name: "note_db"
+    ports:
+      - 27017:27017
+  note-task-mongodb:
+    image: note-task-mongodb:1.0
+    container_name: note-task-mongodb
+    ports:
+      - 8080:8080
+    links:
+      - note_db
